@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Tareas</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="../gestorTareas-frontend/js/App.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Gestión de Tareas</h1>
+    </header>
+    <main>
+        <nav>
+            <button id="create-task-nav">Crear Tarea</button>
+            <button id="list-tasks-nav">Lista de Tareas</button>
+        </nav>
+        <section id="home">
+            <h2>Bienvenido al Gestor de Tareas</h2>
+            <p>Utiliza los botones de arriba para navegar a la creación o listado de tareas.</p>
+        </section>
+        <section id="task-form" class="hidden">
+            <h2>Crear Tarea</h2>
+            <form id="create-task-form">
+                <input type="text" id="title" placeholder="Título" required>
+                <textarea id="description" placeholder="Descripción" required></textarea>
+                <input type="date" id="estimated-end-date" placeholder="Fecha Estimada de Finalización" required>
+                <select id="priority" required>
+                    <option value="">Seleccione Prioridad</option>
+                    <option value="1">Alta</option>
+                    <option value="2">Media</option>
+                    <option value="3">Baja</option>
+                </select>
+                <select id="status" required>
+                    <option value="">Seleccione Estado</option>
+                    <option value="1">Pendiente</option>
+                    <option value="2">En Proceso</option>
+                    <option value="3">Terminada</option>
+                    <option value="4">En Impedimento</option>
+                </select>
+                <select id="employee">
+                    <option value="">Seleccione Responsable</option>
+                    <!-- Opciones se llenarán dinámicamente -->
+                </select>
+                <input type="text" id="creator" placeholder="Creador de la Tarea" required>
+                <textarea id="observations" placeholder="Observaciones"></textarea>
+                <button type="submit">Crear Tarea</button>
+            </form>
+        </section>
+        <section id="task-list" class="hidden">
+            <h2>Lista de Tareas</h2>
+            <div id="filter-options">
+                <input type="text" id="search-title" placeholder="Buscar por Título">
+                <input type="date" id="filter-start-date">
+                <input type="date" id="filter-end-date">
+                <select id="filter-priority">
+                    <option value="">Filtrar por Prioridad</option>
+                    <option value="1">Alta</option>
+                    <option value="2">Media</option>
+                    <option value="3">Baja</option>
+                </select>
+                <select id="filter-status">
+                    <option value="">Filtrar por Estado</option>
+                    <option value="1">Pendiente</option>
+                    <option value="2">En Proceso</option>
+                    <option value="3">Terminada</option>
+                    <option value="4">En Impedimento</option>
+                </select>
+                <select id="filter-employee">
+                    <option value="">Filtrar por Responsable</option>
+                    <!-- Opciones se llenarán dinámicamente -->
+                </select>
+                <button id="filter-button">Aplicar Filtros</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Descripción</th>
+                        <th>Fecha Estimada de Finalización</th>
+                        <th>Prioridad</th>
+                        <th>Estado</th>
+                        <th>Responsable</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tasks-table-body">
+                    <!-- Tareas se llenarán dinámicamente -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>
